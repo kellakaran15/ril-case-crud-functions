@@ -8,9 +8,9 @@ module.exports = async function (context, req) {
     const db = await client.db(config.MONGO_DB);
     const caseHeader = await db.collection("caseHeader").updateOne({ id: req.body.id }, { $set: req.body });
     const responseMessage = caseHeader;
-
     context.res = {
         // status: 200, /* Defaults to 200 */
         body: responseMessage
+
     };
 }
